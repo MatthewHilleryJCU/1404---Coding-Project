@@ -81,13 +81,13 @@ convertTest(amount, startCountry, destCountry)
 
 # Testing
 def testingCode(conversion, amount, startingCurrencyCode, destinationCurrencyCode):
-    """To assist with numerous iterations of testing code"""
+
     amountConverted = format(convert(amount, startingCurrencyCode, destinationCurrencyCode), ".2f")
     return "{} {} {}->{} {} ".format(conversion, amount, startingCurrencyCode, destinationCurrencyCode, amountConverted)
 
 
 def main():
-    try:  # testing convert function
+    try:
         print(testingCode("invalid conversion", 1, "AUD", "AUD"))
         print(testingCode("invalid conversion", 1, "JPY", "ABC"))
         print(testingCode("invalid conversion", 1, "ABC", "USD"))
@@ -105,7 +105,7 @@ def main():
         print(testingCode("valid conversion reverse", 27.80, "AUD", "USD"))
     except:
         print("Convert function failed.")
-    try:  # testing get_details function
+    try:
         print("invalid details" + str(get_details("Unknown")))
         print("invalid details" + str(get_details("Japanese")))
         print("invalid details" + str(get_details("")))
