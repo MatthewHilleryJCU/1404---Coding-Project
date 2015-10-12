@@ -77,3 +77,44 @@ amount = float(input("Enter Amount For Convertion: "))
 startCountry = input("Enter Starting Country (Please enter country name): ")
 destCountry = input("Enter your Destination Country (Please enter country name): ")
 convertTest(amount, startCountry, destCountry)
+
+
+# Testing
+def testingCode(conversion, amount, startingCurrencyCode, destinationCurrencyCode):
+    """To assist with numerous iterations of testing code"""
+    amountConverted = format(convert(amount, startingCurrencyCode, destinationCurrencyCode), ".2f")
+    return "{} {} {}->{} {} ".format(conversion, amount, startingCurrencyCode, destinationCurrencyCode, amountConverted)
+
+
+def main():
+    try:  # testing convert function
+        print(testingCode("invalid conversion", 1, "AUD", "AUD"))
+        print(testingCode("invalid conversion", 1, "JPY", "ABC"))
+        print(testingCode("invalid conversion", 1, "ABC", "USD"))
+        print(testingCode("valid conversion", 10.95, "AUD", "JPY"))
+        print(testingCode("valid conversion reverse", 943.18, "JPY", "AUD"))
+        print(testingCode("valid conversion", 10.95, "AUD", "JPY"))
+        print(testingCode("valid conversion reverse", 13.62, "BGN", "AUD"))
+        print(testingCode("valid conversion", 200.15, "BGN", "JPY"))
+        print(testingCode("valid conversion reverse", 13859.49, "JPY", "BGN"))
+        print(testingCode("valid conversion", 100.00, "JPY", "BGN"))
+        print(testingCode("valid conversion reverse", 0.83, "USD", "JPY"))
+        print(testingCode("valid conversion", 19.99, "USD", "BGN"))
+        print(testingCode("valid conversion reverse", 34.58, "BGN", "USD"))
+        print(testingCode("valid conversion", 19.99, "USD", "AUD"))
+        print(testingCode("valid conversion reverse", 27.80, "AUD", "USD"))
+    except:
+        print("Convert function failed.")
+    try:  # testing get_details function
+        print("invalid details" + str(get_details("Unknown")))
+        print("invalid details" + str(get_details("Japanese")))
+        print("invalid details" + str(get_details("")))
+        print("valid details" + str(get_details("Australia")))
+        print("valid details" + str(get_details("Japan")))
+        print("valid details" + str(get_details("Hong Kong")))
+    except:
+        print("get_details function failed.")
+
+
+if __name__ == '__main__':
+    main()
